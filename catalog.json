@@ -1,0 +1,415 @@
+{
+  "schemaVersion": 1,
+  "packId": "pandawow548-addon-pack",
+  "packName": "Pandawow 5.4.8 Addons Pack",
+  "packVersion": "2026.06.21",
+  "game": {
+    "name": "World of Warcraft",
+    "client": "5.4.8",
+    "interface": 50400
+  },
+  "release": {
+    "owner": "zlsl",
+    "repo": "pandawow-addons",
+    "tag": "v2026.06.21-pandawow548",
+    "asset": "pandawow_addons_2026.06.21.zip"
+  },
+  "addons": [
+    {
+      "id": "affdots",
+      "title": "AffDots",
+      "summary": "DoT power tracker for Warlocks",
+      "description": "DoT power tracker for Warlocks",
+      "category": "uncategorized",
+      "tags": [],
+      "enabledByDefault": false,
+      "folders": [
+        {
+          "name": "AffDots",
+          "role": "core"
+        }
+      ],
+      "requires": [],
+      "conflicts": [],
+      "replaces": [],
+      "recommended": false,
+      "version": "1.24",
+      "author": "virtual#1157 (Virtualize @ Greymane)",
+      "interface": 50400
+    },
+    {
+      "id": "bigwigs",
+      "title": "Big Wigs",
+      "summary": "Modular, lightweight, non-intrusive approach to boss encounter warnings.",
+      "description": "Modular, lightweight, non-intrusive approach to boss encounter warnings.",
+      "category": "uncategorized",
+      "tags": [],
+      "enabledByDefault": false,
+      "folders": [
+        {
+          "name": "BigWigs",
+          "role": "core"
+        },
+        {
+          "name": "BigWigs_BlackrockFoundry",
+          "role": "module"
+        },
+        {
+          "name": "BigWigs_Core",
+          "role": "module"
+        },
+        {
+          "name": "BigWigs_EndlessSpring",
+          "role": "module"
+        },
+        {
+          "name": "BigWigs_HeartOfFear",
+          "role": "module"
+        },
+        {
+          "name": "BigWigs_Highmaul",
+          "role": "module"
+        },
+        {
+          "name": "BigWigs_Mogushan",
+          "role": "module"
+        },
+        {
+          "name": "BigWigs_Options",
+          "role": "module"
+        },
+        {
+          "name": "BigWigs_Pandaria",
+          "role": "module"
+        },
+        {
+          "name": "BigWigs_Plugins",
+          "role": "module"
+        },
+        {
+          "name": "BigWigs_SiegeOfOrgrimmar",
+          "role": "module"
+        },
+        {
+          "name": "BigWigs_ThroneOfThunder",
+          "role": "module"
+        }
+      ],
+      "requires": [],
+      "conflicts": [],
+      "replaces": [],
+      "recommended": false,
+      "version": "4.467",
+      "author": "Funkydude, Maat, Nebula169",
+      "interface": 50400
+    },
+    {
+      "id": "dbm",
+      "title": "Deadly Boss Mods",
+      "summary": "Deadly Boss Mods",
+      "description": "Deadly Boss Mods",
+      "category": "uncategorized",
+      "tags": [],
+      "enabledByDefault": false,
+      "folders": [
+        {
+          "name": "DBM-Core",
+          "role": "core"
+        },
+        {
+          "name": "DBM-Brawlers",
+          "role": "module"
+        },
+        {
+          "name": "DBM-DefaultSkin",
+          "role": "module"
+        },
+        {
+          "name": "DBM-DMF",
+          "role": "module"
+        },
+        {
+          "name": "DBM-GUI",
+          "role": "module"
+        },
+        {
+          "name": "DBM-HeartofFear",
+          "role": "module"
+        },
+        {
+          "name": "DBM-MogushanVaults",
+          "role": "module"
+        },
+        {
+          "name": "DBM-Pandaria",
+          "role": "module"
+        },
+        {
+          "name": "DBM-Party-MoP",
+          "role": "module"
+        },
+        {
+          "name": "DBM-PvP",
+          "role": "module"
+        },
+        {
+          "name": "DBM-Scenario-MoP",
+          "role": "module"
+        },
+        {
+          "name": "DBM-SiegeOfOrgrimmar",
+          "role": "module"
+        },
+        {
+          "name": "DBM-StatusBarTimers",
+          "role": "module"
+        },
+        {
+          "name": "DBM-TerraceofEndlessSpring",
+          "role": "module"
+        },
+        {
+          "name": "DBM-ThroneofThunder",
+          "role": "module"
+        },
+        {
+          "name": "DBM-WorldEvents",
+          "role": "module"
+        }
+      ],
+      "requires": [],
+      "conflicts": [],
+      "replaces": [],
+      "recommended": false,
+      "author": "Tandanu and Nitram",
+      "interface": 50400
+    },
+    {
+      "id": "details",
+      "title": "Details! Damage Meter",
+      "summary": "Essential tool to impress that chick in your raid.",
+      "description": "Essential tool to impress that chick in your raid.",
+      "category": "uncategorized",
+      "tags": [],
+      "enabledByDefault": false,
+      "folders": [
+        {
+          "name": "Details",
+          "role": "core"
+        },
+        {
+          "name": "Details_3DModelsPaths",
+          "role": "module"
+        },
+        {
+          "name": "Details_ChartViewer",
+          "role": "module"
+        },
+        {
+          "name": "Details_DataStorage",
+          "role": "data"
+        },
+        {
+          "name": "Details_DeathGraphs",
+          "role": "module"
+        },
+        {
+          "name": "Details_DpsTuning",
+          "role": "module"
+        },
+        {
+          "name": "Details_EncounterDetails",
+          "role": "module"
+        },
+        {
+          "name": "Details_RaidCheck",
+          "role": "module"
+        },
+        {
+          "name": "Details_Streamer",
+          "role": "module"
+        },
+        {
+          "name": "Details_SunderCount",
+          "role": "module"
+        },
+        {
+          "name": "Details_TimeAttack",
+          "role": "module"
+        },
+        {
+          "name": "Details_TimeLine",
+          "role": "module"
+        },
+        {
+          "name": "Details_TinyThreat",
+          "role": "module"
+        },
+        {
+          "name": "Details_Vanguard",
+          "role": "module"
+        }
+      ],
+      "requires": [],
+      "conflicts": [],
+      "replaces": [],
+      "recommended": false,
+      "interface": 50400
+    },
+    {
+      "id": "elvui",
+      "title": "ElvUI",
+      "summary": "User Interface replacement AddOn for World of Warcraft.",
+      "description": "User Interface replacement AddOn for World of Warcraft.",
+      "category": "uncategorized",
+      "tags": [],
+      "enabledByDefault": false,
+      "folders": [
+        {
+          "name": "ElvUI",
+          "role": "core"
+        },
+        {
+          "name": "ElvUI_AddOnSkins",
+          "role": "module"
+        },
+        {
+          "name": "ElvUI_Enhanced",
+          "role": "module"
+        },
+        {
+          "name": "ElvUI_EnhancedFriendsList",
+          "role": "module"
+        },
+        {
+          "name": "ElvUI_OptionsUI",
+          "role": "module"
+        }
+      ],
+      "requires": [],
+      "conflicts": [],
+      "replaces": [],
+      "recommended": false,
+      "version": "2.76",
+      "author": "Elv, Bunny, Apollyon",
+      "interface": 50400
+    },
+    {
+      "id": "guildtracker",
+      "title": "Guild Tracker",
+      "summary": "Keeps track of changes in the guild roster between logins, and also shows who disabled their account",
+      "description": "Keeps track of changes in the guild roster between logins, and also shows who disabled their account",
+      "category": "uncategorized",
+      "tags": [],
+      "enabledByDefault": false,
+      "folders": [
+        {
+          "name": "GuildTracker",
+          "role": "core"
+        }
+      ],
+      "requires": [],
+      "conflicts": [],
+      "replaces": [],
+      "recommended": false,
+      "version": "5.4.8-1",
+      "author": "Dracula",
+      "interface": 50400
+    },
+    {
+      "id": "npcscan",
+      "title": "_NPCScan",
+      "summary": "Scans NPCs around you for rare ones.",
+      "description": "Scans NPCs around you for rare ones.",
+      "category": "uncategorized",
+      "tags": [],
+      "enabledByDefault": false,
+      "folders": [
+        {
+          "name": "NPCScan",
+          "role": "core"
+        },
+        {
+          "name": "NPCScan.Overlay",
+          "role": "module"
+        }
+      ],
+      "requires": [],
+      "conflicts": [],
+      "replaces": [],
+      "recommended": false,
+      "version": "5.4.8.6",
+      "author": "Torhal, Saiket",
+      "interface": 50400
+    },
+    {
+      "id": "pawn",
+      "title": "Pawn",
+      "summary": "Pawn calculates scores for items that let you easily see which one is better for you.",
+      "description": "Pawn calculates scores for items that let you easily see which one is better for you.",
+      "category": "uncategorized",
+      "tags": [],
+      "enabledByDefault": false,
+      "folders": [
+        {
+          "name": "Pawn",
+          "role": "core"
+        }
+      ],
+      "requires": [],
+      "conflicts": [],
+      "replaces": [],
+      "recommended": false,
+      "version": "1.8.11",
+      "interface": 50400
+    },
+    {
+      "id": "reforgelite",
+      "title": "ReforgeLite",
+      "summary": "Calculates optimal reforging for given weights/caps.",
+      "description": "Calculates optimal reforging for given weights/caps.",
+      "category": "uncategorized",
+      "tags": [],
+      "enabledByDefault": false,
+      "folders": [
+        {
+          "name": "ReforgeLite",
+          "role": "core"
+        }
+      ],
+      "requires": [],
+      "conflicts": [],
+      "replaces": [],
+      "recommended": false,
+      "version": "1.38",
+      "author": "d07.RiV (Iroared)",
+      "interface": 50400
+    },
+    {
+      "id": "wim",
+      "title": "WIM",
+      "summary": "Give whispers an instant messenger feel.",
+      "description": "Give whispers an instant messenger feel.",
+      "category": "uncategorized",
+      "tags": [],
+      "enabledByDefault": false,
+      "folders": [
+        {
+          "name": "WIM",
+          "role": "core"
+        },
+        {
+          "name": "WIM_Elvui",
+          "role": "module"
+        }
+      ],
+      "requires": [],
+      "conflicts": [],
+      "replaces": [],
+      "recommended": false,
+      "version": "r432",
+      "author": "Pazza (Bronzebeard), (Updated by Sylvanaar)",
+      "interface": 50400
+    }
+  ]
+}
