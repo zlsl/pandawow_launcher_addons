@@ -10,8 +10,8 @@
   },
   "release": {
     "owner": "zlsl",
-    "repo": "pandawow-addons",
-    "tag": "v2026.06.21-pandawow548",
+    "repo": "pandawow_launcher_addons",
+    "tag": "addons",
     "asset": "pandawow_addons_2026.06.21.zip"
   },
   "addons": [
