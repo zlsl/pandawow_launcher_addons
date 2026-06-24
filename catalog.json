@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "packId": "pandawow548-addon-pack",
   "packName": "Pandawow 5.4.8 Addons Pack",
-  "packVersion": "2026.06.21",
+  "packVersion": "2026.06.24",
   "game": {
     "name": "World of Warcraft",
     "client": "5.4.8",
@@ -12,7 +12,7 @@
     "owner": "zlsl",
     "repo": "pandawow_launcher_addons",
     "tag": "addons",
-    "asset": "pandawow_addons_2026.06.21.zip"
+    "asset": "pandawow_addons_2026.06.24.zip"
   },
   "addons": [
     {
