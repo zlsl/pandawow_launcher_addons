@@ -1,0 +1,14 @@
+------------------------------------------------------------------------
+r37 | dracula | 2014-09-16 20:03:14 +0000 (Tue, 16 Sep 2014) | 1 line
+Changed paths:
+   A /tags/5.4.8-1 (from /trunk:36)
+
+Tagging as 5.4.8-1
+------------------------------------------------------------------------
+r36 | dracula | 2014-09-16 19:59:25 +0000 (Tue, 16 Sep 2014) | 1 line
+Changed paths:
+   M /trunk/GuildTracker.lua
+   M /trunk/GuildTracker.toc
+
+* Allow guild members from merged realms
+------------------------------------------------------------------------

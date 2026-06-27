@@ -1,0 +1,13 @@
+## Interface: 50400
+## Title: Guild Tracker
+## Notes: Keeps track of changes in the guild roster between logins, and also shows who disabled their account
+## Author: Dracula
+## Version: 5.4.8-1
+## SavedVariables: GuildTrackerDB
+## X-Curse-Packaged-Version: 5.4.8-1
+## X-Curse-Project-Name: Guild Tracker
+## X-Curse-Project-ID: guild-tracker
+## X-Curse-Repository-ID: wow/guild-tracker/mainline
+
+embeds.xml
+GuildTracker.lua
