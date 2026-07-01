@@ -4,11 +4,13 @@ local S = E:GetModule('Skins')
 --Cache global variables
 --Lua functions
 local _G = _G
+local pairs = pairs
 local unpack = unpack
 --WoW API / Variables
 local C_Heirloom_PlayerHasHeirloom = C_Heirloom.PlayerHasHeirloom
 local C_PetJournal_GetPetStats = C_PetJournal.GetPetStats
 local C_PetJournal_GetPetInfoByIndex = C_PetJournal.GetPetInfoByIndex
+local GetSpellInfo = GetSpellInfo
 local GetItemInfo = GetItemInfo
 local hooksecurefunc = hooksecurefunc
 local ITEM_QUALITY_COLORS = ITEM_QUALITY_COLORS
@@ -288,7 +290,9 @@ local function LoadSkin()
 	S:HandleNextPrevButton2(HeirloomsJournal.PagingFrame.PrevPageButton)
 	SquareButton_SetIcon(HeirloomsJournal.PagingFrame.PrevPageButton, 'LEFT')
 	S:HandleDropDownBox(HeirloomsJournalClassDropDown)
-	S:HandleCloseButton(HeirloomsJournal.UpgradeLevelHelpBox.CloseButton)
+	if HeirloomsJournal.UpgradeLevelHelpBox then
+		S:HandleCloseButton(HeirloomsJournal.UpgradeLevelHelpBox.CloseButton)
+	end
     
 	local progressBar = HeirloomsJournal.progressBar
 	progressBar.border:Hide()
@@ -341,6 +345,130 @@ local function LoadSkin()
 	end
 	SkinTab(WardrobeCollectionFrame.ItemsTab)
 	SkinTab(WardrobeCollectionFrame.SetsTab)
+	if WardrobeCollectionFrame.IncarnationsTab then
+		SkinTab(WardrobeCollectionFrame.IncarnationsTab)
+	end
+
+	local function SkinIncarnationSlotButton(button)
+		if not button or button.isSkinned then return end
+
+		button:CreateBackdrop("Default", true)
+		button:StyleButton()
+		button.backdrop:SetAllPoints()
+
+		if button.Border then
+			button.Border:Kill()
+		end
+
+		if button.NormalTexture then
+			button.NormalTexture:SetTexCoord(unpack(E.TexCoords))
+			button.NormalTexture:SetDrawLayer("ARTWORK")
+			button.NormalTexture:SetInside(button.backdrop)
+			button.NormalTexture:SetParent(button.backdrop)
+		end
+
+		button.isSkinned = true
+	end
+
+	local function SkinIncarnationSlotButtons(frame)
+		local slotsFrame = frame and frame.SlotsFrame
+		if not slotsFrame or not slotsFrame.Buttons then return end
+
+		for _, button in pairs(slotsFrame.Buttons) do
+			SkinIncarnationSlotButton(button)
+		end
+	end
+
+	local function SkinNpcIncarnationButton(button)
+		if not button or button.isSkinned then return end
+
+		local texture = button.Icon and button.Icon:GetTexture()
+		if not texture and button.GetAttribute then
+			local _, _, spellIcon = GetSpellInfo(button:GetAttribute("spellID"))
+			texture = spellIcon
+		end
+
+		button:SetFrameLevel(button:GetFrameLevel() + 2)
+		button:CreateBackdrop("Default")
+		button.backdrop:SetAllPoints()
+
+		if button.Border then
+			button.Border:Kill()
+		end
+
+		if button.Icon then
+			if texture then
+				button.Icon:SetTexture(texture)
+			end
+			button.Icon:SetTexCoord(unpack(E.TexCoords))
+			button.Icon:SetDrawLayer("ARTWORK")
+			button.Icon:SetInside(button.backdrop)
+			button.Icon:SetParent(button.backdrop)
+		end
+
+		button.isSkinned = true
+	end
+
+	local function SkinNpcIncarnationButtons()
+		local model = WardrobeTransmogFrame and WardrobeTransmogFrame.Model
+		if not model or not model.IncarnationButtons then return end
+
+		for _, button in pairs(model.IncarnationButtons) do
+			SkinNpcIncarnationButton(button)
+		end
+	end
+
+	local function UpdateIncarnationsFilterButton()
+		if not WardrobeFrame_IsAtTransmogrifier or not WardrobeFrame_IsAtTransmogrifier() then return end
+		if not WardrobeCollectionFrame.IncarnationsCollectionFrame then return end
+		if WardrobeCollectionFrame.activeFrame ~= WardrobeCollectionFrame.IncarnationsCollectionFrame then return end
+
+		WardrobeCollectionFrame.FilterButton:Show()
+		WardrobeCollectionFrame.FilterButton:SetEnabled(true)
+		WardrobeCollectionFrame.FilterButton:SetText(SOURCES)
+	end
+
+	local function SkinSetListButton(button)
+		if not button or button.isSkinned then return end
+
+		if button.Background then
+			button.Background:SetTexture(E.media.blankTex)
+			button.Background:SetVertexColor(0, 0, 0, 0.35)
+			button.Background:SetDrawLayer("BACKGROUND")
+			button.Background:SetAllPoints()
+		end
+
+		if button.Icon then
+			button.Icon:SetTexCoord(unpack(E.TexCoords))
+			button.Icon:SetDrawLayer("ARTWORK")
+		end
+
+		if button.IconCover then
+			button.IconCover:SetInside(button.Icon)
+		end
+
+		if button.Name then
+			button.Name:SetDrawLayer("OVERLAY")
+			button.Name:FontTemplate()
+		end
+
+		if button.Label then
+			button.Label:SetDrawLayer("OVERLAY")
+			button.Label:FontTemplate(nil, 10)
+		end
+
+		if button.ProgressBar then
+			button.ProgressBar:SetTexture(E.media.normTex)
+			button.ProgressBar:SetVertexColor(0, .6, 0)
+			button.ProgressBar:SetDrawLayer("OVERLAY")
+		end
+
+		if button.SelectedTexture then
+			button.SelectedTexture:SetTexture(1, 1, 1, 0.1)
+		end
+
+		button.isSkinned = true
+	end
 
 	--Items
 	WardrobeCollectionFrame.progressBar:StripTextures()
@@ -350,6 +478,8 @@ local function LoadSkin()
 	S:HandleEditBox(WardrobeCollectionFrameSearchBox)
 	WardrobeCollectionFrameSearchBox:SetFrameLevel(5)
 	S:HandleButton(WardrobeCollectionFrame.FilterButton)
+	hooksecurefunc("WardrobeCollectionFrame_SetTab", UpdateIncarnationsFilterButton)
+	hooksecurefunc("WardrobeCollectionFrame_SetContainer", UpdateIncarnationsFilterButton)
 	S:HandleDropDownBox(WardrobeCollectionFrameWeaponDropDown)
 	WardrobeCollectionFrame.ItemsCollectionFrame:StripTextures()
 	WardrobeCollectionFrame.ItemsCollectionFrame:SetTemplate("Transparent")
@@ -389,7 +519,7 @@ local function LoadSkin()
 	--Skin set buttons
 	for i = 1, #WardrobeCollectionFrame.SetsCollectionFrame.ScrollFrame.buttons do
 		local b = WardrobeCollectionFrame.SetsCollectionFrame.ScrollFrame.buttons[i];
-		S:HandleItemButton(b)
+		SkinSetListButton(b)
         
         b.Favorite:SetTexture("Interface\\AddOns\\Blizzard_Collections\\favoritesicon.blp");
         b.Favorite:SetTexCoord(0.03125, 0.8125, 0.03125, 0.8125);
@@ -397,7 +527,6 @@ local function LoadSkin()
         b.Favorite:SetHeight(25);
        
 		b.Favorite:Point("TOPLEFT", b.Icon, "TOPLEFT", -8, 8)
-		b.SelectedTexture:SetTexture(1, 1, 1, 0.1)
 	end
 
 	--Set quality color on set item buttons
@@ -431,6 +560,35 @@ local function LoadSkin()
 	end
 	hooksecurefunc(WardrobeCollectionFrame.SetsCollectionFrame, "DisplaySet", SkinSetItemButtons)
 
+	if WardrobeCollectionFrame.IncarnationsCollectionFrame then
+		local incarnationsFrame = WardrobeCollectionFrame.IncarnationsCollectionFrame
+
+		incarnationsFrame:StripTextures()
+		incarnationsFrame:SetTemplate("Transparent")
+
+		if incarnationsFrame.ClassDropDown then
+			S:HandleDropDownBox(incarnationsFrame.ClassDropDown)
+		end
+
+		if incarnationsFrame.PagingFrame then
+			S:HandleNextPrevButton2(incarnationsFrame.PagingFrame.PrevPageButton, nil, true)
+			S:HandleNextPrevButton2(incarnationsFrame.PagingFrame.NextPageButton)
+		end
+
+		for i = 1, 2 do
+			for j = 1, 4 do
+				local model = incarnationsFrame["ModelR"..i.."C"..j]
+				if model then
+					model:StripTextures()
+					model:CreateBackdrop("Default")
+				end
+			end
+		end
+
+		SkinIncarnationSlotButtons(incarnationsFrame)
+		hooksecurefunc(incarnationsFrame, "UpdateSlotButtonsLayout", SkinIncarnationSlotButtons)
+	end
+
 	-- Transmogrify NPC
 	WardrobeFrame:StripTextures()
 	WardrobeFrame:SetTemplate("Transparent")
@@ -455,6 +613,11 @@ local function LoadSkin()
 		WardrobeTransmogFrame.Model.SlotButtons[i].backdrop:SetAllPoints()
 		WardrobeTransmogFrame.Model.SlotButtons[i].Border:Kill()
 		WardrobeTransmogFrame.Model.SlotButtons[i].Icon:SetTexCoord(unpack(E.TexCoords))
+	end
+
+	SkinNpcIncarnationButtons()
+	if _G.WardrobeIncarnationsCollection_UpdateIncarnationButtons then
+		hooksecurefunc("WardrobeIncarnationsCollection_UpdateIncarnationButtons", SkinNpcIncarnationButtons)
 	end
 
 	WardrobeTransmogFrame.SpecButton:ClearAllPoints()
